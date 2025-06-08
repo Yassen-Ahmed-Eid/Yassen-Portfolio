@@ -70,6 +70,29 @@
                 <a href="https://www.instagram.com/yaseeen_ahmeed/"><i class="fa-brands fa-instagram"></i></a>
         </div>
     </section>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const musicToggle = document.getElementById('music-toggle');
+    const backgroundMusic = document.getElementById('background-music');
+    let isPlaying = false;
+
+    musicToggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (isPlaying) {
+        backgroundMusic.pause();
+        isPlaying = false;
+        musicToggle.querySelector('i').style.color = "#fff";
+      } else {
+        backgroundMusic.play().then(() => {
+          isPlaying = true;
+          musicToggle.querySelector('i').style.color = "#ae70ff"; // لون زي الـ hover
+        }).catch(() => {
+          alert("المتصفح منع التشغيل التلقائي. اضغط تاني بعد التفاعل.");
+        });
+      }
+    });
+  });
+</script>
 
 </body>
 
